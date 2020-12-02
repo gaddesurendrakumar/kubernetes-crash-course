@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,7 +6,7 @@ metadata:
   name: currency-conversion
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   minReadySeconds: 45
   selector:
     matchLabels:
@@ -22,7 +22,7 @@ spec:
         app: currency-conversion
     spec:
       containers:
-      - image: in28min/currency-conversion:0.0.5-RELEASE #CHANGE
+      - image: gaddesurendrakumar/currency-conversion:0.0.5-RELEASE #CHANGE
         imagePullPolicy: IfNotPresent
         name: currency-conversion
 #        env: //CHANGE
